@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom'
+import type { ReactNode } from 'react'
 import { usePhase } from '../../context/phase'
 import { MobileNavigation } from './MobileNavigation'
 import { Sidebar } from './Sidebar'
 
-export function AppLayout() {
+export function AppLayout({ children }: { children: ReactNode }) {
   const { selectedPhase } = usePhase()
 
   return (
@@ -11,7 +11,7 @@ export function AppLayout() {
       <Sidebar />
       <MobileNavigation />
       <main className="main-content">
-        <Outlet />
+        {children}
       </main>
     </div>
   )

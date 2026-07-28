@@ -1,5 +1,5 @@
 import { Apple, ArrowRight, CalendarDays, Dumbbell, Flame, HeartPulse, Scale, Target, Wheat } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link } from '../app/navigation'
 import { Card } from '../components/ui/Card'
 import { InfoNote } from '../components/ui/InfoNote'
 import { MetricCard } from '../components/ui/MetricCard'

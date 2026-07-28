@@ -1,17 +1,30 @@
-import { createBrowserRouter } from 'react-router-dom'
 import { AppLayout } from '../components/layout/AppLayout'
 import { DashboardPage } from '../pages/DashboardPage'
 import { NutritionPage } from '../pages/NutritionPage'
 import { RoutinePage } from '../pages/RoutinePage'
+import { useNavigation } from './navigation-context'
+import { NavigationProvider } from './navigation'
 
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <AppLayout />,
-    children: [
-      { index: true, element: <DashboardPage /> },
-      { path: 'rutina', element: <RoutinePage /> },
-      { path: 'alimentacion', element: <NutritionPage /> },
-    ],
-  },
-])
+function CurrentPage() {
+  const { pathname } = useNavigation()
+
+  if (pathname === '/rutina') {
+    return <RoutinePage />
+  }
+
+  if (pathname === '/alimentacion') {
+    return <NutritionPage />
+  }
+
+  return <DashboardPage />
+}
+
+export function AppRouter() {
+  return (
+    <NavigationProvider>
+      <AppLayout>
+        <CurrentPage />
+      </AppLayout>
+    </NavigationProvider>
+  )
+}

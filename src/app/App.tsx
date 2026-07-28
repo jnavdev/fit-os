@@ -1,11 +1,10 @@
-import { RouterProvider } from 'react-router-dom'
 import { PhaseProvider } from '../context/PhaseContext'
-import { router } from './router'
+import { AppRouter } from './router'
 
 export function App() {
   return (
     <PhaseProvider>
-      <RouterProvider router={router} />
+      <AppRouter />
     </PhaseProvider>
   )
 }
