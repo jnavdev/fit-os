@@ -1158,6 +1158,42 @@ summary:focus-visible {
   gap: 0.45rem;
 }
 
+.session-card__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.session-card__actions a {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 0.5rem;
+  padding: 0 0.75rem;
+  color: var(--text);
+  background: var(--accent-soft);
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.session-card__actions a:hover {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-1px);
+}
+
+.session-card__actions svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
 .exercise-list {
   display: grid;
   gap: 0.6rem;
@@ -1194,6 +1230,36 @@ summary:focus-visible {
   gap: 1rem;
   border-top: 1px solid var(--border);
   padding: 1rem;
+}
+
+.exercise-video-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.35rem;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.5rem;
+  padding: 0 0.75rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.exercise-video-link:hover {
+  border-color: var(--accent-border);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.exercise-video-link svg {
+  flex: 0 0 auto;
 }
 
 .exercise-stats {
@@ -1256,6 +1322,33 @@ summary:focus-visible {
 .meal-options article {
   display: grid;
   gap: 0.5rem;
+}
+
+.meal-option-macros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.meal-option-macros div {
+  border: 1px solid var(--border);
+  border-radius: 0.45rem;
+  padding: 0.45rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.meal-option-macros dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.meal-option-macros dd {
+  margin: 0.15rem 0 0;
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 800;
 }
 
 .meal-options strong,
@@ -1451,6 +1544,7 @@ summary:focus-visible {
   }
 
   .macro-distribution__legend,
+  .meal-option-macros,
   .nutrition-principle-grid,
   .daily-structure-list,
   .principle-grid {
@@ -1460,8 +1554,15 @@ summary:focus-visible {
   .exercise summary,
   .progression-card,
   .hydration-card,
+  .session-card__actions,
+  .exercise-video-link,
   .exercise-stats {
     grid-template-columns: 1fr;
+  }
+
+  .exercise-video-link {
+    width: 100%;
+    justify-content: center;
   }
 
   .hydration-card .section-header,

@@ -46,5 +46,15 @@ function BuilderGroup({ icon: Icon, title, items }: { icon: typeof Beef; title: 
 }
 
 function uniqueItems(items: string[]): string[] {
-  return [...new Set(items)]
+  return Array.from(
+    items.reduce((uniqueItemsByKey, item) => {
+      const key = item.trim().toLocaleLowerCase()
+
+      if (!uniqueItemsByKey.has(key)) {
+        uniqueItemsByKey.set(key, item)
+      }
+
+      return uniqueItemsByKey
+    }, new Map<string, string>()).values(),
+  )
 }

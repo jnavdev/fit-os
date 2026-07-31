@@ -1,5 +1,15 @@
 import type { WeeklyScheduleItem, WorkoutDay } from '../types/fitness'
 
+const upperBodyYoutubeLinks = {
+  warmupUrl: 'https://www.youtube.com/results?search_query=upper+body+warm+up+before+weight+training',
+  stretchingUrl: 'https://www.youtube.com/results?search_query=upper+body+stretching+after+weight+training',
+}
+
+const lowerBodyYoutubeLinks = {
+  warmupUrl: 'https://www.youtube.com/results?search_query=lower+body+warm+up+before+weight+training',
+  stretchingUrl: 'https://www.youtube.com/results?search_query=lower+body+stretching+after+weight+training',
+}
+
 export const weeklyTrainingSchedule: WeeklyScheduleItem[] = [
   { day: 'Lun', label: 'Upper A', type: 'upper' },
   { day: 'Mar', label: 'Lower A', type: 'lower' },
@@ -16,6 +26,7 @@ export const baseRoutine: WorkoutDay[] = [
     weekday: 'Lunes',
     name: 'Upper A',
     focus: ['Pecho superior', 'dorsales', 'deltoides laterales', 'brazos'],
+    youtubeLinks: upperBodyYoutubeLinks,
     exercises: [
       {
         id: 'incline-db-press-a',
@@ -101,6 +112,7 @@ export const baseRoutine: WorkoutDay[] = [
     weekday: 'Martes',
     name: 'Lower A',
     focus: ['Cuadriceps', 'isquios', 'gluteos', 'core'],
+    youtubeLinks: lowerBodyYoutubeLinks,
     exercises: [
       {
         id: 'goblet-squat',
@@ -175,6 +187,7 @@ export const baseRoutine: WorkoutDay[] = [
     weekday: 'Jueves',
     name: 'Upper B',
     focus: ['Espalda', 'hombros', 'pecho superior', 'brazos'],
+    youtubeLinks: upperBodyYoutubeLinks,
     exercises: [
       {
         id: 'chin-ups',
@@ -271,6 +284,7 @@ export const baseRoutine: WorkoutDay[] = [
     weekday: 'Viernes',
     name: 'Lower B',
     focus: ['Cadena posterior', 'gluteos', 'piernas', 'core'],
+    youtubeLinks: lowerBodyYoutubeLinks,
     exercises: [
       {
         id: 'db-romanian-deadlift-b',

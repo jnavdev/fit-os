@@ -32,7 +32,7 @@ export function NutritionPage() {
       <Card className="nutrition-plan-card">
         <SectionHeader title={nutritionPlan.name} description={nutritionPlan.description} />
         <p>
-          No necesitas consumir exactamente los alimentos mostrados. Utiliza las opciones y ejemplos para construir comidas que se ajusten a tus preferencias y objetivos diarios.
+          Elige una comida lista por bloque del dia y usa las sustituciones si necesitas variar alimentos manteniendo una estructura similar.
         </p>
       </Card>
 
@@ -73,7 +73,7 @@ export function NutritionPage() {
       <MealBuilder meals={nutritionPlan.meals} />
 
       <section>
-        <SectionHeader title="Ejemplos de comidas" description="Usa estos ejemplos como punto de partida y ajusta porciones segun tus macros." />
+        <SectionHeader title="Comidas listas" description="Opciones armadas para la fase actual, con cantidades y macros aproximados por comida." />
         <div className="meal-grid">
           {nutritionPlan.meals.map((meal) => (
             <MealCard key={meal.id} meal={meal} />
@@ -116,7 +116,7 @@ export function NutritionPage() {
       </section>
 
       <InfoNote>
-        No es necesario comer exactamente estos alimentos. Lo importante es alcanzar los macros diarios utilizando alimentos que disfrutes.
+        Las cantidades y macros son aproximados. Puedes intercambiar alimentos similares y mantener el total diario de calorias y macronutrientes como referencia principal.
       </InfoNote>
     </div>
   )
@@ -144,5 +144,15 @@ function getFoodSubstitutions(meals: Meal[]) {
 }
 
 function uniqueItems(items: string[]): string[] {
-  return [...new Set(items)]
+  return Array.from(
+    items.reduce((uniqueItemsByKey, item) => {
+      const key = item.trim().toLocaleLowerCase()
+
+      if (!uniqueItemsByKey.has(key)) {
+        uniqueItemsByKey.set(key, item)
+      }
+
+      return uniqueItemsByKey
+    }, new Map<string, string>()).values(),
+  )
 }

@@ -21,6 +21,10 @@ export interface WorkoutDay {
   weekday: string
   name: string
   focus: string[]
+  youtubeLinks: {
+    warmupUrl: string
+    stretchingUrl: string
+  }
   exercises: Exercise[]
 }
 
@@ -28,6 +32,7 @@ export interface MealOption {
   title: string
   description?: string
   foods: string[]
+  macros: MacroTargets
 }
 
 export interface Meal {
