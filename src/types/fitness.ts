@@ -13,7 +13,6 @@ export interface Exercise {
   muscles: string[]
   technique: string[]
   mistakes: string[]
-  alternatives: string[]
 }
 
 export interface WorkoutDay {

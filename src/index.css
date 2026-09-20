@@ -1246,6 +1246,7 @@ summary:focus-visible {
   font-size: 0.9rem;
   font-weight: 800;
   text-decoration: none;
+  cursor: pointer;
   transition:
     border-color 160ms ease,
     background 160ms ease,
@@ -1260,6 +1261,64 @@ summary:focus-visible {
 
 .exercise-video-link svg {
   flex: 0 0 auto;
+}
+
+.exercise-gif-modal {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(5, 8, 13, 0.78);
+}
+
+.exercise-gif-modal__content {
+  width: min(100%, 28rem);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+}
+
+.exercise-gif-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.exercise-gif-modal__header h4 {
+  margin: 0;
+  color: var(--text);
+}
+
+.exercise-gif-modal__header button {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.exercise-gif-modal__header button:hover {
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+.exercise-gif-modal img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
 }
 
 .exercise-stats {

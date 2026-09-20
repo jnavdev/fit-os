@@ -1,11 +1,12 @@
-import { Dumbbell, PlayCircle, StretchHorizontal, Video } from 'lucide-react'
+import { useState } from 'react'
+import { Dumbbell, Image, PlayCircle, StretchHorizontal, Video, X } from 'lucide-react'
 import type { WorkoutDay } from '../../types/fitness'
 import { Badge } from './Badge'
 import { Card } from './Card'
 
 const exerciseYoutubeQueries: Record<string, string> = {
   'incline-db-press-a': 'incline dumbbell press proper form',
-  'pull-ups-pronated': 'pronated pull up proper form',
+  'inverted-row-pronated': 'pronated inverted row proper form',
   'flat-db-press': 'flat dumbbell bench press proper form',
   'one-arm-row': 'one arm dumbbell row proper form',
   'lateral-raises-a': 'dumbbell lateral raise proper form',
@@ -17,7 +18,7 @@ const exerciseYoutubeQueries: Record<string, string> = {
   'calf-raise-a': 'standing calf raise proper form',
   'controlled-crunch': 'controlled crunch proper form',
   'leg-raises': 'leg raise proper form',
-  'chin-ups': 'chin up proper form',
+  'inverted-row-supinated': 'supinated inverted row proper form',
   'db-shoulder-press': 'dumbbell shoulder press proper form',
   'chest-supported-row': 'chest supported dumbbell row proper form',
   'incline-db-press-b': 'incline dumbbell press proper form',
@@ -33,11 +34,43 @@ const exerciseYoutubeQueries: Record<string, string> = {
   plank: 'plank proper form',
 }
 
+const exerciseGifPaths: Record<string, string> = {
+  'incline-db-press-a': '/gifs/exercises/incline-db-press.gif',
+  'inverted-row-pronated': '/gifs/exercises/inverted-row.gif',
+  'flat-db-press': '/gifs/exercises/flat-db-press.gif',
+  'one-arm-row': '/gifs/exercises/one-arm-row.gif',
+  'lateral-raises-a': '/gifs/exercises/lateral-raise.gif',
+  'hammer-curl': '/gifs/exercises/hammer-curl.gif',
+  'overhead-triceps': '/gifs/exercises/overhead-triceps.gif',
+  'goblet-squat': '/gifs/exercises/goblet-squat.gif',
+  'db-romanian-deadlift-a': '/gifs/exercises/db-romanian-deadlift.gif',
+  'bulgarian-split-squat-a': '/gifs/exercises/bulgarian-split-squat.gif',
+  'calf-raise-a': '/gifs/exercises/calf-raise.gif',
+  'controlled-crunch': '/gifs/exercises/crunch.gif',
+  'leg-raises': '/gifs/exercises/leg-raise.gif',
+  'inverted-row-supinated': '/gifs/exercises/inverted-row.gif',
+  'db-shoulder-press': '/gifs/exercises/db-shoulder-press.gif',
+  'chest-supported-row': '/gifs/exercises/chest-supported-row.gif',
+  'incline-db-press-b': '/gifs/exercises/incline-db-press.gif',
+  'lateral-raises-b': '/gifs/exercises/lateral-raise.gif',
+  'rear-delt-fly': '/gifs/exercises/rear-delt-fly.gif',
+  'incline-curl': '/gifs/exercises/incline-curl.gif',
+  'bench-dips': '/gifs/exercises/bench-dips.gif',
+  'db-romanian-deadlift-b': '/gifs/exercises/db-romanian-deadlift.gif',
+  'walking-lunges': '/gifs/exercises/walking-lunges.gif',
+  'db-hip-thrust': '/gifs/exercises/db-hip-thrust.gif',
+  'bulgarian-split-squat-b': '/gifs/exercises/bulgarian-split-squat.gif',
+  'calf-raise-b': '/gifs/exercises/calf-raise.gif',
+  'plank': '/gifs/exercises/plank.gif',
+}
+
 interface WorkoutSessionCardProps {
   workout: WorkoutDay
 }
 
 export function WorkoutSessionCard({ workout }: WorkoutSessionCardProps) {
+  const [gifExercise, setGifExercise] = useState<{ name: string; path: string } | null>(null)
+
   return (
     <Card className="session-card">
       <header className="session-card__header">
@@ -76,6 +109,14 @@ export function WorkoutSessionCard({ workout }: WorkoutSessionCardProps) {
                 <Video size={17} aria-hidden="true" />
                 <span>Ver tecnica en YouTube</span>
               </a>
+              <button
+                className="exercise-video-link"
+                type="button"
+                onClick={() => setGifExercise({ name: exercise.name, path: exerciseGifPaths[exercise.id] })}
+              >
+                <Image size={17} aria-hidden="true" />
+                <span>Ver GIF del ejercicio</span>
+              </button>
               <dl className="exercise-stats">
                 <div>
                   <dt>Series</dt>
@@ -93,11 +134,29 @@ export function WorkoutSessionCard({ workout }: WorkoutSessionCardProps) {
               <ListBlock title="Musculos" items={exercise.muscles} />
               <ListBlock title="Tecnica" items={exercise.technique} ordered />
               <ListBlock title="Errores comunes" items={exercise.mistakes} />
-              <ListBlock title="Alternativas domesticas" items={exercise.alternatives} />
             </div>
           </details>
         ))}
       </div>
+      {gifExercise && (
+        <div className="exercise-gif-modal" role="presentation" onClick={() => setGifExercise(null)}>
+          <div
+            className="exercise-gif-modal__content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="exercise-gif-modal-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="exercise-gif-modal__header">
+              <h4 id="exercise-gif-modal-title">{gifExercise.name}</h4>
+              <button type="button" aria-label="Cerrar GIF" onClick={() => setGifExercise(null)}>
+                <X size={20} aria-hidden="true" />
+              </button>
+            </div>
+            <img src={gifExercise.path} alt={`Demostracion de ${gifExercise.name}`} />
+          </div>
+        </div>
+      )}
     </Card>
   )
 }

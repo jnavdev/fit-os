@@ -37,18 +37,16 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Pecho superior', 'triceps', 'deltoides anterior'],
         technique: ['Escapulas retraidas sobre el banco', 'Baja controlado hasta un rango comodo', 'Empuja sin chocar las mancuernas arriba'],
         mistakes: ['Convertirlo en press plano por poco angulo', 'Abrir demasiado los codos'],
-        alternatives: ['Press inclinado con bandas', 'Flexiones con pies elevados'],
       },
       {
-        id: 'pull-ups-pronated',
-        name: 'Dominadas pronas',
+        id: 'inverted-row-pronated',
+        name: 'Remo invertido bajo barra firme (agarre prono)',
         sets: '4',
-        reps: '6-10 o cerca del fallo tecnico',
-        rest: '120 s',
+        reps: '8-15',
+        rest: '90 s',
         muscles: ['Dorsales', 'biceps', 'espalda alta'],
-        technique: ['Inicia bajando las escapulas', 'Sube con pecho hacia la barra', 'Controla la bajada completa'],
-        mistakes: ['Impulsarse con piernas', 'Cortar el rango de movimiento'],
-        alternatives: ['Dominadas asistidas con banda', 'Remo invertido bajo barra firme'],
+        technique: ['Mantiene el cuerpo recto de talones a hombros', 'Lleva el pecho hacia la barra con agarre prono', 'Controla la bajada completa'],
+        mistakes: ['Dejar caer la cadera', 'Cortar el rango de movimiento'],
       },
       {
         id: 'flat-db-press',
@@ -59,7 +57,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Pecho', 'triceps', 'deltoides anterior'],
         technique: ['Mantiene antebrazos verticales', 'Toca suavemente el rango bajo', 'Bloquea sin perder tension'],
         mistakes: ['Rebotar abajo', 'Perder estabilidad del hombro'],
-        alternatives: ['Flexiones lastradas con mochila', 'Press en suelo con mancuernas'],
       },
       {
         id: 'one-arm-row',
@@ -70,7 +67,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Dorsales', 'romboides', 'biceps'],
         technique: ['Apoya rodilla o mano para estabilizar', 'Lleva el codo hacia la cadera', 'Pausa breve arriba'],
         mistakes: ['Rotar el torso para subir peso', 'Tirar solo con el brazo'],
-        alternatives: ['Remo con banda', 'Remo a dos manos con mancuernas'],
       },
       {
         id: 'lateral-raises-a',
@@ -81,7 +77,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Deltoides lateral', 'trapecio superior'],
         technique: ['Sube hasta altura de hombro', 'Codos apenas flexionados', 'Controla la bajada'],
         mistakes: ['Balancear el cuerpo', 'Encoger hombros en cada repeticion'],
-        alternatives: ['Elevaciones laterales con banda', 'Elevaciones inclinadas apoyado en banco'],
       },
       {
         id: 'hammer-curl',
@@ -92,7 +87,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Braquial', 'biceps', 'antebrazo'],
         technique: ['Munecas neutras', 'Codos cerca del torso', 'Evita impulso en la subida'],
         mistakes: ['Llevar los codos adelante', 'Acortar demasiado la bajada'],
-        alternatives: ['Curl con banda', 'Curl cruzado con mancuerna'],
       },
       {
         id: 'overhead-triceps',
@@ -103,7 +97,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Triceps', 'cabeza larga del triceps'],
         technique: ['Codos apuntan al frente', 'Estira sin arquear la espalda', 'Sube con control'],
         mistakes: ['Abrir los codos', 'Usar carga que molesta el hombro'],
-        alternatives: ['Extension con banda', 'Press cerrado en suelo'],
       },
     ],
   },
@@ -123,7 +116,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Cuadriceps', 'gluteos', 'core'],
         technique: ['Mancuerna pegada al pecho', 'Rodillas siguen la linea de los pies', 'Torso alto y abdomen firme'],
         mistakes: ['Elevar talones', 'Perder profundidad por exceso de carga'],
-        alternatives: ['Sentadilla con dos mancuernas', 'Sentadilla tempo'],
       },
       {
         id: 'db-romanian-deadlift-a',
@@ -134,7 +126,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Isquios', 'gluteos', 'erectores espinales'],
         technique: ['Bisagra desde la cadera', 'Mancuernas cerca de las piernas', 'Espalda neutra todo el recorrido'],
         mistakes: ['Convertirlo en sentadilla', 'Redondear la espalda baja'],
-        alternatives: ['Buenos dias con banda', 'Peso muerto rumano a una pierna'],
       },
       {
         id: 'bulgarian-split-squat-a',
@@ -145,7 +136,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Cuadriceps', 'gluteos', 'aductores'],
         technique: ['Pie delantero firme', 'Baja vertical y controlado', 'Empuja desde medio pie'],
         mistakes: ['Dar un paso demasiado corto', 'Rebotar abajo'],
-        alternatives: ['Zancada atras', 'Split squat sin banco'],
       },
       {
         id: 'calf-raise-a',
@@ -156,7 +146,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Gemelos', 'soleo'],
         technique: ['Pausa arriba', 'Estira abajo con control', 'Usa apoyo para equilibrio'],
         mistakes: ['Hacer rebotes rapidos', 'No completar el rango'],
-        alternatives: ['Gemelos a una pierna', 'Gemelos sentado con mancuerna'],
       },
       {
         id: 'controlled-crunch',
@@ -167,7 +156,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Recto abdominal'],
         technique: ['Exhala al subir', 'Mantiene pelvis estable', 'Sube sin tirar del cuello'],
         mistakes: ['Tirar la cabeza con las manos', 'Hacer repeticiones muy rapidas'],
-        alternatives: ['Crunch con pies elevados', 'Dead bug'],
       },
       {
         id: 'leg-raises',
@@ -178,7 +166,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Abdominal inferior', 'flexores de cadera'],
         technique: ['Zona lumbar controlada', 'Baja solo hasta mantener tension', 'Movimiento lento'],
         mistakes: ['Arquear la espalda baja', 'Usar impulso'],
-        alternatives: ['Reverse crunch', 'Elevacion de rodillas colgado'],
       },
     ],
   },
@@ -190,15 +177,14 @@ export const baseRoutine: WorkoutDay[] = [
     youtubeLinks: upperBodyYoutubeLinks,
     exercises: [
       {
-        id: 'chin-ups',
-        name: 'Dominadas supinas',
+        id: 'inverted-row-supinated',
+        name: 'Remo invertido bajo barra firme (agarre supino)',
         sets: '4',
-        reps: '6-10',
-        rest: '120 s',
+        reps: '8-15',
+        rest: '90 s',
         muscles: ['Dorsales', 'biceps', 'espalda media'],
-        technique: ['Agarre supino firme', 'Pecho hacia la barra', 'Baja hasta extension controlada'],
-        mistakes: ['Subir con impulso', 'Relajar hombros al fondo'],
-        alternatives: ['Dominadas asistidas con banda', 'Remo con banda anclada'],
+        technique: ['Mantiene el cuerpo recto de talones a hombros', 'Lleva el pecho hacia la barra con agarre supino', 'Baja hasta extender los brazos con control'],
+        mistakes: ['Dejar caer la cadera', 'Relajar los hombros al fondo'],
       },
       {
         id: 'db-shoulder-press',
@@ -209,7 +195,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Deltoides anterior', 'deltoides lateral', 'triceps'],
         technique: ['Costillas abajo', 'Empuja en linea vertical', 'Termina con biceps cerca de orejas'],
         mistakes: ['Arquear la espalda', 'Bajar sin control'],
-        alternatives: ['Press sentado con respaldo', 'Pike push-up'],
       },
       {
         id: 'chest-supported-row',
@@ -220,7 +205,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Espalda alta', 'dorsales', 'deltoides posterior'],
         technique: ['Banco inclinado estable', 'Codos hacia atras', 'Pausa sin despegar el pecho'],
         mistakes: ['Levantar el torso', 'Subir hombros hacia orejas'],
-        alternatives: ['Remo unilateral', 'Remo con banda sentado'],
       },
       {
         id: 'incline-db-press-b',
@@ -231,7 +215,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Pecho superior', 'triceps', 'deltoides anterior'],
         technique: ['Angulo moderado del banco', 'Controla el estiramiento', 'Empuja parejo con ambos brazos'],
         mistakes: ['Usar rebote', 'Perder trayectoria por fatiga'],
-        alternatives: ['Flexiones inclinadas dificiles', 'Press con banda'],
       },
       {
         id: 'lateral-raises-b',
@@ -242,7 +225,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Deltoides lateral'],
         technique: ['Mantiene tension continua', 'Codos lideran el movimiento', 'Carga ligera y precisa'],
         mistakes: ['Balancear cadera', 'Convertirlo en elevacion frontal'],
-        alternatives: ['Laterales con banda', 'Laterales parciales al final'],
       },
       {
         id: 'rear-delt-fly',
@@ -253,7 +235,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Deltoides posterior', 'romboides', 'trapecio medio'],
         technique: ['Inclina el torso', 'Abre los brazos sin encoger hombros', 'Pausa breve arriba'],
         mistakes: ['Usar demasiado peso', 'Hacer remo en vez de apertura'],
-        alternatives: ['Face pull con banda', 'Pajaros apoyado en banco'],
       },
       {
         id: 'incline-curl',
@@ -264,7 +245,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Biceps', 'braquial'],
         technique: ['Hombros atras en el banco', 'Supina al subir', 'Estira sin perder tension'],
         mistakes: ['Mover los codos hacia adelante', 'Usar impulso desde el hombro'],
-        alternatives: ['Curl alterno sentado', 'Curl con banda'],
       },
       {
         id: 'bench-dips',
@@ -275,7 +255,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Triceps', 'pecho inferior', 'deltoides anterior'],
         technique: ['Manos firmes en el banco', 'Baja hasta rango sin molestia', 'Codos apuntan atras'],
         mistakes: ['Bajar demasiado si molesta el hombro', 'Separar mucho el cuerpo del banco'],
-        alternatives: ['Press cerrado en suelo', 'Extension de triceps con banda'],
       },
     ],
   },
@@ -295,7 +274,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Isquios', 'gluteos', 'espalda baja'],
         technique: ['Tensiona dorsales antes de bajar', 'Cadera viaja atras', 'Sube apretando gluteos'],
         mistakes: ['Doblar demasiado rodillas', 'Alejar mancuernas del cuerpo'],
-        alternatives: ['Peso muerto rumano unilateral', 'Hip hinge con banda'],
       },
       {
         id: 'walking-lunges',
@@ -306,7 +284,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Cuadriceps', 'gluteos', 'aductores'],
         technique: ['Paso estable y largo medio', 'Rodilla alineada con pie', 'Torso levemente inclinado'],
         mistakes: ['Golpear la rodilla contra el suelo', 'Perder equilibrio por ir rapido'],
-        alternatives: ['Zancada atras', 'Step-up al banco'],
       },
       {
         id: 'db-hip-thrust',
@@ -317,7 +294,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Gluteos', 'isquios'],
         technique: ['Barbilla ligeramente recogida', 'Pausa arriba', 'Costillas abajo'],
         mistakes: ['Hiperextender la espalda', 'Empujar desde puntas de pies'],
-        alternatives: ['Puente de gluteo en suelo', 'Hip thrust a una pierna'],
       },
       {
         id: 'bulgarian-split-squat-b',
@@ -328,7 +304,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Cuadriceps', 'gluteos'],
         technique: ['Mantiene tension en pierna delantera', 'Controla la bajada', 'Sube sin bloquear agresivo'],
         mistakes: ['Empujar con la pierna trasera', 'Elegir altura incomoda del banco'],
-        alternatives: ['Split squat', 'Sentadilla goblet con tempo'],
       },
       {
         id: 'calf-raise-b',
@@ -339,7 +314,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Gemelos', 'soleo'],
         technique: ['Sube completo', 'Pausa arriba', 'Estira abajo sin rebote'],
         mistakes: ['Apurar repeticiones', 'No cargar progresivamente'],
-        alternatives: ['Gemelos unilateral', 'Gemelos sentado'],
       },
       {
         id: 'plank',
@@ -350,7 +324,6 @@ export const baseRoutine: WorkoutDay[] = [
         muscles: ['Core', 'gluteos', 'hombros'],
         technique: ['Linea recta cabeza-cadera-talones', 'Aprieta gluteos', 'Respira sin perder tension'],
         mistakes: ['Hundirse de cadera', 'Elevar demasiado la pelvis'],
-        alternatives: ['Plancha lateral', 'Dead bug'],
       },
     ],
   },

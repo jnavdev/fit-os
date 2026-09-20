@@ -76,7 +76,7 @@ export function RoutinePage() {
       </section>
 
       <section>
-        <SectionHeader title="Sesiones de entrenamiento" description="Abre cada ejercicio para ver tecnica, errores comunes y alternativas domesticas." />
+        <SectionHeader title="Sesiones de entrenamiento" description="Abre cada ejercicio para ver tecnica y errores comunes." />
         <div className="session-grid">
           {baseRoutine.map((workout) => (
             <WorkoutSessionCard key={workout.id} workout={workout} />
