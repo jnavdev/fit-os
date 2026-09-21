@@ -1037,6 +1037,65 @@ summary:focus-visible {
   color: var(--muted);
 }
 
+.meal-timing-schedule {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.meal-timing-schedule article {
+  display: grid;
+  gap: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.meal-timing-schedule time,
+.meal-timing-schedule strong {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.meal-timing-schedule time {
+  color: var(--accent);
+}
+
+.meal-timing-schedule strong svg {
+  color: var(--accent);
+}
+
+.meal-timing-schedule span {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.fixed-schedule-card {
+  display: grid;
+  gap: 1.25rem;
+  border-color: var(--accent-border);
+  background: linear-gradient(135deg, var(--accent-soft), transparent 60%), var(--surface);
+}
+
+.fixed-schedule-card h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.fixed-schedule-card__note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .meal-builder {
   display: grid;
   gap: 1rem;
@@ -1150,6 +1209,22 @@ summary:focus-visible {
   margin: 0.18rem 0 0;
   font-size: 1.35rem;
   line-height: 1.15;
+}
+
+.meal-card__details {
+  border-top: 1px solid var(--border);
+  padding-top: 0.85rem;
+}
+
+.meal-card__details summary {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.meal-card__details .meal-options {
+  margin-top: 0.85rem;
 }
 
 .chip-row {
@@ -1526,7 +1601,8 @@ summary:focus-visible {
   }
 
   .nutrition-principle-grid,
-  .daily-structure-list {
+  .daily-structure-list,
+  .meal-timing-schedule {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -1606,6 +1682,7 @@ summary:focus-visible {
   .meal-option-macros,
   .nutrition-principle-grid,
   .daily-structure-list,
+  .meal-timing-schedule,
   .principle-grid {
     grid-template-columns: 1fr;
   }

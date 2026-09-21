@@ -1,20 +1,14 @@
-import { CalendarDays, CheckCircle2, Clock3, Dumbbell, Home, TrendingUp } from 'lucide-react'
+import { CheckCircle2, TrendingUp } from 'lucide-react'
 import { Badge } from '../components/ui/Badge'
 import { Card } from '../components/ui/Card'
-import { InfoNote } from '../components/ui/InfoNote'
+import { MealTimingSchedule } from '../components/ui/MealTimingSchedule'
 import { PageHeader } from '../components/ui/PageHeader'
 import { SectionHeader } from '../components/ui/SectionHeader'
 import { WeeklyTrainingSchedule } from '../components/ui/WeeklyTrainingSchedule'
 import { WorkoutSessionCard } from '../components/ui/WorkoutSessionCard'
 import { usePhase } from '../context/phase'
 import { baseRoutine, weeklyTrainingSchedule } from '../data/routine'
-
-const routineSummaryItems = [
-  { label: 'Frecuencia', value: '4 dias', icon: CalendarDays },
-  { label: 'Estructura', value: 'Upper / Lower', icon: Dumbbell },
-  { label: 'Duracion estimada', value: '60-80 min', icon: Clock3 },
-  { label: 'Equipamiento', value: 'Mancuernas, banco y barra', icon: Home },
-]
+import { fixedMealSchedule } from '../data/nutrition'
 
 const progressionGuide = [
   'Mantén el rango de repeticiones indicado antes de subir peso.',
@@ -29,26 +23,24 @@ export function RoutinePage() {
     <div className="page-stack">
       <PageHeader
         accent={selectedPhase.accent}
-        description="Rutina Upper / Lower de cuatro días, diseñada para entrenar en casa."
+        description="Agenda semanal fija para organizar fuerza, caminatas, comidas y recuperación."
         eyebrow={`${selectedPhase.shortName} · ${selectedPhase.duration}`}
         title="Rutina de entrenamiento"
       />
 
-      <p className="routine-intro">
-        La seleccion de ejercicios se mantiene estable para facilitar la progresion. La fase modifica el volumen, el esfuerzo y las prioridades de recuperacion.
-      </p>
-
       <section>
-        <SectionHeader title="Resumen de la rutina" description="Base comun para las tres fases." />
-        <div className="routine-summary-grid">
-          {routineSummaryItems.map(({ label, value, icon: Icon }) => (
-            <Card className="routine-summary-card" key={label}>
-              <Icon size={18} aria-hidden="true" />
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </Card>
-          ))}
-        </div>
+        <SectionHeader title="Tu agenda semanal" description="Comidas a la misma hora todos los días; fuerza de 18:30 a 19:45 de lunes, martes, jueves y viernes." />
+        <Card className="fixed-schedule-card">
+          <div>
+            <h2>Horario de comidas</h2>
+            <MealTimingSchedule items={fixedMealSchedule} />
+          </div>
+          <div className="fixed-schedule-card__training">
+            <h2>Entrenamiento y actividad</h2>
+            <WeeklyTrainingSchedule items={weeklyTrainingSchedule} />
+          </div>
+          <p className="fixed-schedule-card__note">Miércoles: caminata suave de 30–45 min. Sábado: caminata larga de 60–90 min. El bloque de las 17:00 es colación normal en días sin fuerza.</p>
+        </Card>
       </section>
 
       <Card className="training-adjustments-card">
@@ -71,11 +63,6 @@ export function RoutinePage() {
       </Card>
 
       <section>
-        <SectionHeader title="Calendario semanal" description="La distribucion de fuerza se mantiene igual en todas las fases." />
-        <WeeklyTrainingSchedule items={weeklyTrainingSchedule} />
-      </section>
-
-      <section>
         <SectionHeader title="Sesiones de entrenamiento" description="Abre cada ejercicio para ver tecnica y errores comunes." />
         <div className="session-grid">
           {baseRoutine.map((workout) => (
@@ -96,9 +83,6 @@ export function RoutinePage() {
         </div>
       </Card>
 
-      <InfoNote>
-        Prioriza dormir bien, sostener los pasos diarios y ajustar el volumen si la recuperacion empeora. La fase actual define el esfuerzo, no una rutina distinta.
-      </InfoNote>
     </div>
   )
 }

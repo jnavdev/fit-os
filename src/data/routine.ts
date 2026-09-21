@@ -11,12 +11,12 @@ const lowerBodyYoutubeLinks = {
 }
 
 export const weeklyTrainingSchedule: WeeklyScheduleItem[] = [
-  { day: 'Lun', label: 'Upper A', type: 'upper' },
-  { day: 'Mar', label: 'Lower A', type: 'lower' },
-  { day: 'Mie', label: 'Descanso o caminata', type: 'cardio' },
-  { day: 'Jue', label: 'Upper B', type: 'upper' },
-  { day: 'Vie', label: 'Lower B', type: 'lower' },
-  { day: 'Sab', label: 'Caminata larga opcional', type: 'cardio' },
+  { day: 'Lun', label: 'Upper A', type: 'upper', time: '18:30' },
+  { day: 'Mar', label: 'Lower A', type: 'lower', time: '18:30' },
+  { day: 'Mie', label: 'Caminata suave', type: 'cardio', time: '18:30' },
+  { day: 'Jue', label: 'Upper B', type: 'upper', time: '18:30' },
+  { day: 'Vie', label: 'Lower B', type: 'lower', time: '18:30' },
+  { day: 'Sab', label: 'Caminata larga', type: 'cardio', time: '10:00' },
   { day: 'Dom', label: 'Descanso', type: 'rest' },
 ]
 

@@ -33,7 +33,7 @@ export function WeeklyTrainingSchedule({ items, compact = false }: WeeklyTrainin
               <Icon size={16} aria-hidden="true" />
             </div>
             <strong>{item.label}</strong>
-            <small>{labels[item.type]}</small>
+            <small>{item.time ? `${item.time} · ` : ''}{labels[item.type]}</small>
           </article>
         )
       })}

@@ -1,18 +1,16 @@
-import { Beef, Carrot, Droplets, Flame, HeartPulse, ListChecks, Scale, Utensils, Wheat } from 'lucide-react'
+import { Beef, Carrot, Droplets, Flame, HeartPulse, ListChecks, Scale, Wheat } from 'lucide-react'
 import { Card } from '../components/ui/Card'
 import { InfoNote } from '../components/ui/InfoNote'
 import { MacroDistribution } from '../components/ui/MacroDistribution'
-import { MealBuilder } from '../components/ui/MealBuilder'
 import { MealCard } from '../components/ui/MealCard'
+import { MealTimingSchedule } from '../components/ui/MealTimingSchedule'
 import { MetricCard } from '../components/ui/MetricCard'
 import { PageHeader } from '../components/ui/PageHeader'
 import { SectionHeader } from '../components/ui/SectionHeader'
 import { SupplementList } from '../components/ui/SupplementList'
 import { usePhase } from '../context/phase'
-import { getNutritionPlanById } from '../data/nutrition'
+import { fixedMealSchedule, getNutritionPlanById } from '../data/nutrition'
 import type { Meal } from '../types/fitness'
-
-const dailyStructure = ['Desayuno', 'Almuerzo', 'Colacion o merienda', 'Cena', 'Comida alrededor del entrenamiento, cuando corresponda']
 
 export function NutritionPage() {
   const { selectedPhase } = usePhase()
@@ -58,22 +56,13 @@ export function NutritionPage() {
       </section>
 
       <Card className="daily-structure-card">
-        <SectionHeader title="Como distribuir tus comidas" description="Estructura orientativa para organizar el dia sin fijar horarios obligatorios." />
-        <div className="daily-structure-list">
-          {dailyStructure.map((item) => (
-            <article key={item}>
-              <Utensils size={16} aria-hidden="true" />
-              <span>{item}</span>
-            </article>
-          ))}
-        </div>
-        <p>Puedes utilizar tres, cuatro o cinco comidas. La cantidad de comidas importa menos que alcanzar el total diario de calorias y macronutrientes.</p>
+        <SectionHeader title="Horario fijo de comidas" description="Sostén este orden todos los días. En días de fuerza, la merienda de las 17:00 funciona como preentreno." />
+        <MealTimingSchedule items={fixedMealSchedule} />
+        <p>La cena queda después del entrenamiento; si no entrenas, úsala simplemente como cierre del día.</p>
       </Card>
 
-      <MealBuilder meals={nutritionPlan.meals} />
-
       <section>
-        <SectionHeader title="Comidas listas" description="Opciones armadas para la fase actual, con cantidades y macros aproximados por comida." />
+        <SectionHeader title="Elige tus comidas" description="Escoge una opción por horario. Las cantidades se ajustan a la fase actual." />
         <div className="meal-grid">
           {nutritionPlan.meals.map((meal) => (
             <MealCard key={meal.id} meal={meal} />
@@ -116,7 +105,7 @@ export function NutritionPage() {
       </section>
 
       <InfoNote>
-        Las cantidades y macros son aproximados. Puedes intercambiar alimentos similares y mantener el total diario de calorias y macronutrientes como referencia principal.
+        Elige una de las dos opciones en cada horario: ambas tienen el mismo presupuesto de macros. Pesa arroz, papas, lentejas, fideos, carnes y pescados ya cocidos. Revisa la etiqueta de tu yogur y pan, porque puede variar por marca.
       </InfoNote>
     </div>
   )

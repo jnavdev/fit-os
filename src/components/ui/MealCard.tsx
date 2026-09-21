@@ -21,37 +21,40 @@ export function MealCard({ meal }: MealCardProps) {
         <FoodGroup icon={Flame} title="Grasas" items={meal.fatSources} />
         {meal.vegetables ? <FoodGroup icon={Carrot} title="Verduras" items={meal.vegetables} /> : null}
       </div>
-      <div className="meal-options">
-        {meal.examples.map((option) => (
-          <article key={option.title}>
-            <strong>{option.title}</strong>
-            {option.description ? <p>{option.description}</p> : null}
-            <dl className="meal-option-macros" aria-label={`Macros de ${option.title}`}>
-              <div>
-                <dt>Kcal</dt>
-                <dd>{option.macros.calories}</dd>
-              </div>
-              <div>
-                <dt>Prot</dt>
-                <dd>{option.macros.protein} g</dd>
-              </div>
-              <div>
-                <dt>Carb</dt>
-                <dd>{option.macros.carbs} g</dd>
-              </div>
-              <div>
-                <dt>Grasa</dt>
-                <dd>{option.macros.fats} g</dd>
-              </div>
-            </dl>
-            <ul>
-              {option.foods.map((food) => (
-                <li key={food}>{food}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
+      <details className="meal-card__details">
+        <summary>Ver {meal.examples.length} opciones con macros</summary>
+        <div className="meal-options">
+          {meal.examples.map((option) => (
+            <article key={option.title}>
+              <strong>{option.title}</strong>
+              {option.description ? <p>{option.description}</p> : null}
+              <dl className="meal-option-macros" aria-label={`Macros de ${option.title}`}>
+                <div>
+                  <dt>Kcal</dt>
+                  <dd>{option.macros.calories}</dd>
+                </div>
+                <div>
+                  <dt>Prot</dt>
+                  <dd>{option.macros.protein} g</dd>
+                </div>
+                <div>
+                  <dt>Carb</dt>
+                  <dd>{option.macros.carbs} g</dd>
+                </div>
+                <div>
+                  <dt>Grasa</dt>
+                  <dd>{option.macros.fats} g</dd>
+                </div>
+              </dl>
+              <ul>
+                {option.foods.map((food) => (
+                  <li key={food}>{food}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </details>
       <div className="list-block">
         <h4>Consejos</h4>
         <ul>

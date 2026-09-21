@@ -68,6 +68,13 @@ export interface WeeklyScheduleItem {
   day: string
   label: string
   type: 'upper' | 'lower' | 'cardio' | 'rest'
+  time?: string
+}
+
+export interface MealTiming {
+  time: string
+  name: string
+  description: string
 }
 
 export interface FitnessPhase {
