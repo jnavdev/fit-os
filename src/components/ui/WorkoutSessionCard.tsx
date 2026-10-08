@@ -6,7 +6,7 @@ import { Card } from './Card'
 
 const exerciseYoutubeQueries: Record<string, string> = {
   'incline-db-press-a': 'incline dumbbell press proper form',
-  'inverted-row-pronated': 'pronated inverted row proper form',
+  'pull-up': 'pull up proper form',
   'flat-db-press': 'flat dumbbell bench press proper form',
   'one-arm-row': 'one arm dumbbell row proper form',
   'lateral-raises-a': 'dumbbell lateral raise proper form',
@@ -18,25 +18,25 @@ const exerciseYoutubeQueries: Record<string, string> = {
   'calf-raise-a': 'standing calf raise proper form',
   'controlled-crunch': 'controlled crunch proper form',
   'leg-raises': 'leg raise proper form',
-  'inverted-row-supinated': 'supinated inverted row proper form',
+  'one-arm-row-b': 'one arm dumbbell row proper form',
   'db-shoulder-press': 'dumbbell shoulder press proper form',
   'chest-supported-row': 'chest supported dumbbell row proper form',
   'incline-db-press-b': 'incline dumbbell press proper form',
   'lateral-raises-b': 'dumbbell lateral raise proper form',
   'rear-delt-fly': 'rear delt fly proper form',
   'incline-curl': 'incline dumbbell curl proper form',
-  'bench-dips': 'bench dips proper form',
+  'close-grip-db-floor-press': 'close grip dumbbell floor press proper form',
   'db-romanian-deadlift-b': 'dumbbell romanian deadlift proper form',
   'walking-lunges': 'walking lunges proper form',
   'db-hip-thrust': 'dumbbell hip thrust proper form',
-  'bulgarian-split-squat-b': 'bulgarian split squat proper form',
+  'hamstring-walkout': 'hamstring bridge walkout proper form',
   'calf-raise-b': 'standing calf raise proper form',
   plank: 'plank proper form',
 }
 
 const exerciseGifPaths: Record<string, string> = {
   'incline-db-press-a': '/gifs/exercises/incline-db-press.gif',
-  'inverted-row-pronated': '/gifs/exercises/inverted-row.gif',
+  'pull-up': '/gifs/exercises/pull-up.gif',
   'flat-db-press': '/gifs/exercises/flat-db-press.gif',
   'one-arm-row': '/gifs/exercises/one-arm-row.gif',
   'lateral-raises-a': '/gifs/exercises/lateral-raise.gif',
@@ -48,18 +48,18 @@ const exerciseGifPaths: Record<string, string> = {
   'calf-raise-a': '/gifs/exercises/calf-raise.gif',
   'controlled-crunch': '/gifs/exercises/crunch.gif',
   'leg-raises': '/gifs/exercises/leg-raise.gif',
-  'inverted-row-supinated': '/gifs/exercises/inverted-row.gif',
+  'one-arm-row-b': '/gifs/exercises/one-arm-row.gif',
   'db-shoulder-press': '/gifs/exercises/db-shoulder-press.gif',
   'chest-supported-row': '/gifs/exercises/chest-supported-row.gif',
   'incline-db-press-b': '/gifs/exercises/incline-db-press.gif',
   'lateral-raises-b': '/gifs/exercises/lateral-raise.gif',
   'rear-delt-fly': '/gifs/exercises/rear-delt-fly.gif',
   'incline-curl': '/gifs/exercises/incline-curl.gif',
-  'bench-dips': '/gifs/exercises/bench-dips.gif',
+  'close-grip-db-floor-press': '/gifs/exercises/close-grip-db-floor-press.gif',
   'db-romanian-deadlift-b': '/gifs/exercises/db-romanian-deadlift.gif',
   'walking-lunges': '/gifs/exercises/walking-lunges.gif',
   'db-hip-thrust': '/gifs/exercises/db-hip-thrust.gif',
-  'bulgarian-split-squat-b': '/gifs/exercises/bulgarian-split-squat.gif',
+  'hamstring-walkout': '/gifs/exercises/hamstring-walkout.gif',
   'calf-raise-b': '/gifs/exercises/calf-raise.gif',
   'plank': '/gifs/exercises/plank.gif',
 }
@@ -109,14 +109,16 @@ export function WorkoutSessionCard({ workout }: WorkoutSessionCardProps) {
                 <Video size={17} aria-hidden="true" />
                 <span>Ver tecnica en YouTube</span>
               </a>
-              <button
-                className="exercise-video-link"
-                type="button"
-                onClick={() => setGifExercise({ name: exercise.name, path: exerciseGifPaths[exercise.id] })}
-              >
-                <Image size={17} aria-hidden="true" />
-                <span>Ver GIF del ejercicio</span>
-              </button>
+              {exerciseGifPaths[exercise.id] && (
+                <button
+                  className="exercise-video-link"
+                  type="button"
+                  onClick={() => setGifExercise({ name: exercise.name, path: exerciseGifPaths[exercise.id] })}
+                >
+                  <Image size={17} aria-hidden="true" />
+                  <span>Ver GIF del ejercicio</span>
+                </button>
+              )}
               <dl className="exercise-stats">
                 <div>
                   <dt>Series</dt>

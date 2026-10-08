@@ -57,7 +57,7 @@ export const nutritionPlans: Record<NutritionPlanId, NutritionPlan> = {
     id: 'cut', name: 'Definición', description: 'Menú cerrado para bajar grasa manteniendo rendimiento.',
     principles: ['Cinco comidas ya presupuestadas.', 'Dos alternativas intercambiables por horario.', 'Usar solo las cantidades cocidas indicadas.', 'Carbohidratos alrededor del entrenamiento.', 'No añadir extras sin ajustar el plan.'],
     macros: { calories: 2000, protein: 160, carbs: 195, fats: 60 }, meals: getMealsForPlan('cut'),
-    cardioNutritionTips: { sessions: '2 caminatas moderadas por semana, más una caminata larga opcional.', recommendations: ['Prioriza pasos diarios.', 'No uses cardio como compensación de comida.', 'Aumenta actividad solo si el progreso se estanca varias semanas.'] },
+    cardioNutritionTips: { sessions: 'Miércoles: 30–45 min suaves. Sábado: 60–90 min a un ritmo cómodo.', recommendations: ['Prioriza pasos diarios.', 'No uses cardio como compensación de comida.', 'Aumenta actividad solo si el progreso se estanca varias semanas.'] },
     hydration: ['Toma agua durante el día, especialmente alrededor del entrenamiento.', 'Aumenta líquidos si hay calor o sudoración alta.'], supplementsNotes,
   },
   bulk: {
@@ -71,7 +71,7 @@ export const nutritionPlans: Record<NutritionPlanId, NutritionPlan> = {
     id: 'finalCut', name: 'Definición final', description: 'Menú cerrado de alta saciedad para una etapa corta de déficit.',
     principles: ['Cinco comidas ya presupuestadas.', 'Dos alternativas intercambiables por horario.', 'Usar solo las cantidades cocidas indicadas.', 'Proteína alta y verduras en las comidas principales.', 'No añadir extras sin ajustar el plan.'],
     macros: { calories: 2000, protein: 170, carbs: 185, fats: 60 }, meals: getMealsForPlan('finalCut'),
-    cardioNutritionTips: { sessions: '2-3 sesiones moderadas por semana.', recommendations: ['Ajusta cardio solo si el progreso se detiene.', 'Prioriza recuperación y sueño.', 'No elimines los carbohidratos del menú.'] },
+    cardioNutritionTips: { sessions: 'Miércoles: 30–45 min suaves. Sábado: 60–90 min a un ritmo cómodo; añade actividad según recuperación.', recommendations: ['Ajusta cardio solo si el progreso se detiene.', 'Prioriza recuperación y sueño.', 'No elimines los carbohidratos del menú.'] },
     hydration: ['Sé consistente con agua y sodio.', 'Prioriza hidratación antes de aumentar restricciones.'], supplementsNotes,
   },
 }
